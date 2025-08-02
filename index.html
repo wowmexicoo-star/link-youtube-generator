@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Enlace de Suscripción | Bodycam México</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #00ffd5;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 25px;
+      color: #ffffff;
+      font-weight: normal;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #00ffd5;
+      color: #000;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00c2a8;
+    }
+
+    .output {
+      margin-top: 20px;
+      background-color: #fff;
+      color: #000;
+      padding: 10px;
+      border-radius: 6px;
+      word-break: break-word;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .licencia {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .licencia strong {
+      color: #00ffd5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>BODYCAM MÉXICO</h1>
+    <h2>🔗 Generador de Enlace de Suscripción</h2>
+
+    <label class="label" for="inputUrl">Pega el URL de tu canal de YouTube:</label>
+    <input type="text" id="inputUrl" placeholder="https://www.youtube.com/@TuCanal">
+    <button onclick="generarEnlace()">Generar enlace</button>
+
+    <div class="output" id="resultado" style="display:none;">
+      <span class="label">Tu enlace de suscripción:</span>
+      <div id="enlaceGenerado"></div>
+    </div>
+
+    <div class="licencia">
+      <p>Si deseas usar esta herramienta para tus propios propósitos, solicítala al correo oficial de <strong>Bodycam México</strong> y adquiere la licencia.</p>
+      <p>Envía un correo a <strong>wowmexicoo@gmail.com</strong> con el asunto <strong>GENERADOR</strong> y se te responderá en breve con la información para utilizarla bajo tu propia marca.</p>
+    </div>
+  </div>
+
+  <script>
+    function generarEnlace() {
+      const input = document.getElementById("inputUrl").value.trim();
+      const resultado = document.getElementById("resultado");
+      const enlaceGenerado = document.getElementById("enlaceGenerado");
+
+      if (!input || !input.includes("youtube.com")) {
+        alert("Por favor ingresa un URL válido de YouTube.");
+        return;
+      }
+
+      const enlace = input.includes("?") ? input + "&sub_confirmation=1" : input + "?sub_confirmation=1";
+      enlaceGenerado.textContent = enlace;
+      resultado.style.display = "block";
+    }
+  </script>
+</body>
+</html>
