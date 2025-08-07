@@ -211,11 +211,16 @@
       const jwt = parseJwt(response.credential);
       const nombre = jwt.name;
       const correo = jwt.email;
-      fetch("https://formsubmit.co/ajax/nakamalol.channel@gmail.com", {
+
+      fetch("https://formspree.io/f/mvgqvgon", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ Nombre: nombre, Correo: correo })
+        body: JSON.stringify({
+          Nombre: nombre,
+          Correo: correo
+        })
       });
+
       irAFase2();
     }
 
