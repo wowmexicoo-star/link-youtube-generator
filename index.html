@@ -13,7 +13,6 @@
       margin: 0;
       padding: 0;
     }
-
     .container {
       max-width: 600px;
       margin: 40px auto;
@@ -23,11 +22,6 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
       text-align: center;
     }
-
-    h1, h2, h3 {
-      margin-bottom: 20px;
-    }
-
     input[type="text"], button {
       width: 100%;
       padding: 12px;
@@ -36,40 +30,35 @@
       border: none;
       border-radius: 6px;
     }
-
     button {
       background-color: #00ffd5;
       color: #000;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
-
     button:hover {
       background-color: #00c2a8;
     }
-
     .hidden {
       display: none;
     }
-
-    .output {
-      margin-top: 20px;
-    }
-
     .publicidad {
       background-color: #1f1f1f;
       padding: 12px;
       margin: 15px 0;
       border: 1px dashed #555;
     }
-
+    .publicidad small {
+      font-size: 12px;
+      display: block;
+      margin-top: 8px;
+      color: #bbb;
+    }
     #contadorUsuarios {
       font-weight: bold;
       font-size: 18px;
       margin-bottom: 20px;
       color: #00ffd5;
     }
-
     a {
       color: #00ffd5;
       text-decoration: underline;
@@ -77,179 +66,120 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- FASE 1: LOGIN -->
-    <div id="fase1">
-      <div class="publicidad">
-        📘 Guía completa para monetizar YouTube en 2025 por solo $10 pesitos — <a href="https://ekq782ygr591sm43-67287580762.shopifypreview.com/products_preview?preview_key=5e27021510b7e07077a4bd794df31671" target="_blank">Ver ahora</a><br>
-        📨 Si quieres anunciarte aquí, escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a>
-      </div>
-      <div id="contadorUsuarios">+1,000,000 usuarios han usado esta herramienta</div>
-
-      <h1>Bienvenido a Bodycam México</h1>
-      <p>Para continuar, accede con tu cuenta de Google.</p>
-      <p>Aceptas nuestros <a href="https://policies.google.com/terms" target="_blank">Términos</a> y <a href="https://policies.google.com/privacy" target="_blank">Política</a>.</p>
-
-      <div id="g_id_onload"
-           data-client_id="689151884154-1v1av8v5opmn5lhderofblsimud6ccld.apps.googleusercontent.com"
-           data-callback="handleCredentialResponse"
-           data-auto_prompt="false">
-      </div>
-
-      <div class="g_id_signin"
-           data-type="standard"
-           data-shape="rectangular"
-           data-theme="filled_blue"
-           data-text="sign_in_with"
-           data-size="large">
-      </div>
-
-      <div class="publicidad">
-        🎯 ¿Quieres ganar dinero con videos virales? Únete como colaborador. Cupo limitado y registro gratis — <a href="https://forms.gle/urXPCE2hpKkrjBpF9" target="_blank">Postúlate aquí</a><br>
-        📨 Si quieres anunciarte aquí, escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a>
-      </div>
-    </div>
-
-    <!-- FASE 2: SUSCRIPCIÓN -->
-    <div id="fase2" class="hidden">
-      <div class="publicidad">
-        📘 Guía completa para monetizar YouTube en 2025 por solo $10 pesitos — <a href="https://ekq782ygr591sm43-67287580762.shopifypreview.com/products_preview?preview_key=5e27021510b7e07077a4bd794df31671" target="_blank">Ver ahora</a><br>
-        📨 Si quieres anunciarte aquí, escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a>
-      </div>
-      <div id="contadorUsuarios2">+1,000,000 usuarios han usado esta herramienta</div>
-
-      <h2>¡Gracias por ingresar!</h2>
-      <p>Suscríbete a nuestro canal para acceder a herramientas exclusivas.</p>
-      <button onclick="window.open('https://www.youtube.com/@BodycamFilesMx?sub_confirmation=1', '_blank')">Suscribirme al canal</button>
-      <button onclick="irAFase3()">Ya me suscribí, continuar</button>
-
-      <div class="publicidad">
-        🎯 ¿Quieres ganar dinero con videos virales? Únete como colaborador. Cupo limitado y registro gratis — <a href="https://forms.gle/urXPCE2hpKkrjBpF9" target="_blank">Postúlate aquí</a><br>
-        📨 Si quieres anunciarte aquí, escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a>
-      </div>
-    </div>
-
-    <!-- FASE 3: HERRAMIENTA -->
-    <div id="fase3" class="hidden">
-      <div class="publicidad">
-        📘 Guía completa para monetizar YouTube en 2025 por solo $10 pesitos — <a href="https://ekq782ygr591sm43-67287580762.shopifypreview.com/products_preview?preview_key=5e27021510b7e07077a4bd794df31671" target="_blank">Ver ahora</a><br>
-        📨 Si quieres anunciarte aquí, escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a>
-      </div>
-      <div id="contadorUsuarios3">+1,000,000 usuarios han usado esta herramienta</div>
-
-      <h2>🔗 Generador de Enlace de Suscripción</h2>
-      <input type="text" id="inputUrl" placeholder="https://www.youtube.com/@TuCanal">
-      <button onclick="generarEnlace()">Generar Enlace</button>
-
-      <div class="output hidden" id="resultado">
-        <p><strong>Tu enlace de suscripción:</strong></p>
-        <div id="enlaceGenerado" style="margin-bottom:10px;"></div>
-        <button onclick="copiarAlPortapapeles()">Copiar al portapapeles</button>
-      </div>
-
-      <button onclick="window.open('https://ekq782ygr591sm43-67287580762.shopifypreview.com/products_preview?preview_key=5e27021510b7e07077a4bd794df31671', '_blank')">📘 Ver guía completa para monetizar</button>
-      <button onclick="irAFase4()">📹 Ver cómo unirte al programa</button>
-
-      <div class="publicidad">
-        🎯 ¿Quieres ganar dinero con videos virales? Únete como colaborador. Cupo limitado y registro gratis — <a href="https://forms.gle/urXPCE2hpKkrjBpF9" target="_blank">Postúlate aquí</a><br>
-        📨 Si quieres anunciarte aquí, escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a>
-      </div>
-    </div>
-
-    <!-- FASE 4: VIDEO + FORMULARIO -->
-    <div id="fase4" class="hidden">
-      <div class="publicidad">
-        📘 Guía completa para monetizar YouTube en 2025 por solo $10 pesitos — <a href="https://ekq782ygr591sm43-67287580762.shopifypreview.com/products_preview?preview_key=5e27021510b7e07077a4bd794df31671" target="_blank">Ver ahora</a><br>
-        📨 Si quieres anunciarte aquí, escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a>
-      </div>
-      <div id="contadorUsuarios4">+1,000,000 usuarios han usado esta herramienta</div>
-
-      <h2>Únete al proyecto de creadores</h2>
-      <p>Mira este breve video donde te explicamos cómo formar parte del equipo:</p>
-      <div style="background:#111;padding:20px;border-radius:10px;margin-bottom:15px;">
-        <p>🎥 Aquí irá tu video explicativo (en cuanto esté listo)</p>
-      </div>
-      <button onclick="window.open('https://forms.gle/urXPCE2hpKkrjBpF9', '_blank')">📝 Rellenar formulario de registro</button>
-
-      <div class="publicidad">
-        🎯 ¿Quieres ganar dinero con videos virales? Únete como colaborador. Cupo limitado y registro gratis — <a href="https://forms.gle/urXPCE2hpKkrjBpF9" target="_blank">Postúlate aquí</a><br>
-        📨 Si quieres anunciarte aquí, escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a>
-      </div>
-    </div>
+<div class="container" id="fase1">
+  <h1>Inicia sesión con Google</h1>
+  <div id="g_id_onload" 
+       data-client_id="TU_CLIENT_ID"
+       data-callback="handleCredentialResponse">
   </div>
+  <div class="g_id_signin" data-type="standard"></div>
+  <div class="publicidad">
+    📘 Guía para monetizar YouTube — <a href="#">Ver ahora</a>
+    <small>¿Quieres anunciarte? Escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a></small>
+  </div>
+  <div class="publicidad">
+    🎯 Gana dinero con videos virales — <a href="#">Postúlate aquí</a>
+    <small>¿Quieres anunciarte? Escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a></small>
+  </div>
+</div>
 
-  <script>
-    function irAFase2() {
-      document.getElementById('fase1').classList.add('hidden');
-      document.getElementById('fase2').classList.remove('hidden');
-    }
+<div class="container hidden" id="fase2">
+  <h2>¡Gracias por iniciar sesión!</h2>
+  <p>Suscríbete a nuestro canal antes de continuar:</p>
+  <a href="https://www.youtube.com/@BodycamFilesMx?sub_confirmation=1" target="_blank">Suscribirse</a>
+  <button onclick="mostrarFase3()">Ya me suscribí</button>
+  <div class="publicidad">
+    📘 Guía para monetizar YouTube — <a href="#">Ver ahora</a>
+    <small>¿Quieres anunciarte? Escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a></small>
+  </div>
+  <div class="publicidad">
+    🎯 Gana dinero con videos virales — <a href="#">Postúlate aquí</a>
+    <small>¿Quieres anunciarte? Escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a></small>
+  </div>
+</div>
 
-    function irAFase3() {
-      document.getElementById('fase2').classList.add('hidden');
-      document.getElementById('fase3').classList.remove('hidden');
-    }
+<div class="container hidden" id="fase3">
+  <h2>Genera tu enlace personalizado</h2>
+  <input type="text" id="url" placeholder="Pega aquí el enlace de un canal de YouTube">
+  <button onclick="generarEnlace()">Generar enlace</button>
+  <div id="output"></div>
+  <button onclick="mostrarFase4()">Continuar</button>
+  <div class="publicidad">
+    📘 Guía para monetizar YouTube — <a href="#">Ver ahora</a>
+    <small>¿Quieres anunciarte? Escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a></small>
+  </div>
+  <div class="publicidad">
+    🎯 Gana dinero con videos virales — <a href="#">Postúlate aquí</a>
+    <small>¿Quieres anunciarte? Escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a></small>
+  </div>
+</div>
 
-    function irAFase4() {
-      document.getElementById('fase3').classList.add('hidden');
-      document.getElementById('fase4').classList.remove('hidden');
-    }
+<div class="container hidden" id="fase4">
+  <h2>Último paso</h2>
+  <p>Revisa este video antes de aplicar:</p>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+  <a href="https://forms.gle/urXPCE2hpKkrjBpF9" target="_blank">
+    <button>Postúlate como colaborador</button>
+  </a>
+  <div class="publicidad">
+    📘 Guía para monetizar YouTube — <a href="#">Ver ahora</a>
+    <small>¿Quieres anunciarte? Escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a></small>
+  </div>
+  <div class="publicidad">
+    🎯 Gana dinero con videos virales — <a href="#">Postúlate aquí</a>
+    <small>¿Quieres anunciarte? Escribe a: <a href="mailto:nakamalol.channel@gmail.com">nakamalol.channel@gmail.com</a></small>
+  </div>
+</div>
 
-    function generarEnlace() {
-      const input = document.getElementById("inputUrl").value.trim();
-      const resultado = document.getElementById("resultado");
-      const enlaceGenerado = document.getElementById("enlaceGenerado");
+<script>
+  function handleCredentialResponse(response) {
+    const data = parseJwt(response.credential);
+    const nombre = data.name;
+    const correo = data.email;
 
-      if (!input || !input.includes("youtube.com")) {
-        alert("Por favor ingresa un URL válido de YouTube.");
-        return;
-      }
+    fetch("https://formspree.io/f/mvgqvgon", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nombre, correo })
+    });
 
-      const enlace = input.includes("?") ? input + "&sub_confirmation=1" : input + "?sub_confirmation=1";
-      enlaceGenerado.textContent = enlace;
-      resultado.classList.remove("hidden");
-    }
+    document.getElementById("fase1").classList.add("hidden");
+    document.getElementById("fase2").classList.remove("hidden");
+  }
 
-    function copiarAlPortapapeles() {
-      const texto = document.getElementById("enlaceGenerado").textContent;
-      navigator.clipboard.writeText(texto).then(() => {
-        alert("Enlace copiado al portapapeles");
-      });
-    }
+  function parseJwt(token) {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+  }
 
-    function actualizarContador(id) {
-      const el = document.getElementById(id);
-      let contador = 1000000;
-      setInterval(() => {
-        contador += Math.floor(Math.random() * 5);
-        el.textContent = "+" + contador.toLocaleString("es-MX") + " usuarios han usado esta herramienta";
-      }, 3000);
-    }
+  function mostrarFase3() {
+    document.getElementById("fase2").classList.add("hidden");
+    document.getElementById("fase3").classList.remove("hidden");
+  }
 
-    actualizarContador("contadorUsuarios");
-    actualizarContador("contadorUsuarios2");
-    actualizarContador("contadorUsuarios3");
-    actualizarContador("contadorUsuarios4");
+  function mostrarFase4() {
+    document.getElementById("fase3").classList.add("hidden");
+    document.getElementById("fase4").classList.remove("hidden");
+  }
 
-    function handleCredentialResponse(response) {
-      const jwt = parseJwt(response.credential);
-      const nombre = jwt.name;
-      const correo = jwt.email;
+  function generarEnlace() {
+    const url = document.getElementById("url").value;
+    const enlace = url + "?sub_confirmation=1";
+    document.getElementById("output").innerHTML = `
+      <p>Tu enlace:</p>
+      <input type="text" value="${enlace}" readonly>
+      <button onclick="copiarAlPortapapeles('${enlace}')">Copiar</button>
+    `;
+  }
 
-      fetch("https://formspree.io/f/mvgqvgon", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          Nombre: nombre,
-          Correo: correo
-        })
-      });
-
-      irAFase2();
-    }
-
-    function parseJwt(token) {
-      return JSON.parse(atob(token.split('.')[1]));
-    }
-  </script>
+  function copiarAlPortapapeles(texto) {
+    navigator.clipboard.writeText(texto);
+    alert("¡Enlace copiado!");
+  }
+</script>
 </body>
 </html>
