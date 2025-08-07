@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Bodycam México | Generador de Enlace</title>
+  <title>Bodycam México | Herramienta Oficial</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -11,28 +11,20 @@
       color: #fff;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
     }
 
     .container {
-      background-color: rgba(0, 0, 0, 0.6);
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: rgba(0, 0, 0, 0.7);
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      max-width: 600px;
-      width: 90%;
       text-align: center;
     }
 
-    h1, h2 {
-      margin: 0 0 20px;
-    }
-
-    .hidden {
-      display: none;
+    h1, h2, h3 {
+      margin-bottom: 20px;
     }
 
     input[type="text"], button {
@@ -55,9 +47,26 @@
       background-color: #00c2a8;
     }
 
-    .output, .licencia {
+    .hidden {
+      display: none;
+    }
+
+    .output {
       margin-top: 20px;
-      font-size: 14px;
+    }
+
+    .publicidad {
+      background-color: #1f1f1f;
+      padding: 12px;
+      margin: 15px 0;
+      border: 1px dashed #555;
+    }
+
+    #contadorUsuarios {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #00ffd5;
     }
 
     a {
@@ -68,52 +77,69 @@
 </head>
 <body>
   <div class="container">
-    <!-- Fase 1: Login Simulado -->
+
+    <!-- FASE 1: LOGIN -->
     <div id="fase1">
+      <div class="publicidad">[ Espacio publicitario superior ]</div>
+      <div id="contadorUsuarios">+1,000,000 usuarios han usado esta herramienta</div>
+
       <h1>Bienvenido a Bodycam México</h1>
       <p>Para continuar, accede con tu cuenta de Google.</p>
-      <p>Al continuar, aceptas nuestros <a href="https://policies.google.com/terms" target="_blank">Términos y Condiciones</a> y <a href="https://policies.google.com/privacy" target="_blank">Política de Privacidad</a>.</p>
+      <p>Aceptas nuestros <a href="https://policies.google.com/terms" target="_blank">Términos</a> y <a href="https://policies.google.com/privacy" target="_blank">Política</a>.</p>
       <button onclick="irAFase2()">Iniciar sesión con Google</button>
+
+      <div class="publicidad">[ Espacio publicitario inferior ]</div>
     </div>
 
-    <!-- Fase 2: Bienvenida -->
+    <!-- FASE 2: SUSCRIPCIÓN -->
     <div id="fase2" class="hidden">
+      <div class="publicidad">[ Espacio publicitario superior ]</div>
+      <div id="contadorUsuarios2">+1,000,000 usuarios han usado esta herramienta</div>
+
       <h2>¡Gracias por ingresar!</h2>
       <p>Suscríbete a nuestro canal para acceder a herramientas exclusivas.</p>
-      <button onclick="window.open('https://www.youtube.com/@TuCanal?sub_confirmation=1', '_blank')">Suscríbete al canal</button>
+      <button onclick="window.open('https://www.youtube.com/@BodycamFilesMx?sub_confirmation=1', '_blank')">Suscribirme al canal</button>
       <button onclick="irAFase3()">Ya me suscribí, continuar</button>
+
+      <div class="publicidad">[ Espacio publicitario inferior ]</div>
     </div>
 
-    <!-- Fase 3: Herramienta -->
+    <!-- FASE 3: HERRAMIENTA -->
     <div id="fase3" class="hidden">
-      <h1>BODYCAM MÉXICO</h1>
-      <h2>🔗 Generador de Enlace de Suscripción</h2>
+      <div class="publicidad">[ Espacio publicitario superior ]</div>
+      <div id="contadorUsuarios3">+1,000,000 usuarios han usado esta herramienta</div>
 
-      <label for="inputUrl">Pega el URL de tu canal de YouTube:</label>
+      <h2>🔗 Generador de Enlace de Suscripción</h2>
       <input type="text" id="inputUrl" placeholder="https://www.youtube.com/@TuCanal">
-      <button onclick="generarEnlace()">Generar enlace</button>
+      <button onclick="generarEnlace()">Generar Enlace</button>
 
       <div class="output hidden" id="resultado">
         <p><strong>Tu enlace de suscripción:</strong></p>
-        <div id="enlaceGenerado"></div>
+        <div id="enlaceGenerado" style="margin-bottom:10px;"></div>
+        <button onclick="copiarAlPortapapeles()">Copiar al portapapeles</button>
       </div>
 
-      <button onclick="window.open('#', '_blank')">Guía para monetizar en YouTube</button>
-      <button onclick="irAFase4()">¿Quieres empezar a monetizar ya? Da clic aquí</button>
+      <button onclick="window.open('https://ekq782ygr591sm43-67287580762.shopifypreview.com/products_preview?preview_key=5e27021510b7e07077a4bd794df31671', '_blank')">📘 Ver guía completa para monetizar</button>
+      <button onclick="irAFase4()">📹 Ver cómo unirte al programa</button>
 
-      <div class="licencia">
-        <p>¿Quieres usar esta herramienta con tu marca? Escribe a <strong>wowmexicoo@gmail.com</strong> con asunto <strong>GENERADOR</strong>.</p>
-      </div>
+      <div class="publicidad">[ Espacio publicitario inferior ]</div>
     </div>
 
-    <!-- Fase 4: Wizard (simulado) -->
+    <!-- FASE 4: VIDEO + FORMULARIO -->
     <div id="fase4" class="hidden">
-      <h2>Programa de colaboración con Bodycam México</h2>
-      <p>🎬 ¡Forma parte de nuestra red de creadores!</p>
-      <p>Te enseñamos cómo monetizar y te acompañamos en el proceso.</p>
-      <p>Firmamos contrato, te damos guía, soporte y difusión.</p>
-      <button onclick="window.open('#', '_blank')">Ir al formulario de registro</button>
+      <div class="publicidad">[ Espacio publicitario superior ]</div>
+      <div id="contadorUsuarios4">+1,000,000 usuarios han usado esta herramienta</div>
+
+      <h2>Únete al proyecto de creadores</h2>
+      <p>Mira este breve video donde te explicamos cómo formar parte del equipo:</p>
+      <div style="background:#111;padding:20px;border-radius:10px;margin-bottom:15px;">
+        <p>🎥 Aquí irá tu video explicativo (en cuanto esté listo)</p>
+      </div>
+      <button onclick="window.open('https://forms.gle/urXPCE2hpKkrjBpF9', '_blank')">📝 Rellenar formulario de registro</button>
+
+      <div class="publicidad">[ Espacio publicitario inferior ]</div>
     </div>
+
   </div>
 
   <script>
@@ -146,6 +172,28 @@
       enlaceGenerado.textContent = enlace;
       resultado.classList.remove("hidden");
     }
+
+    function copiarAlPortapapeles() {
+      const texto = document.getElementById("enlaceGenerado").textContent;
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("Enlace copiado al portapapeles");
+      });
+    }
+
+    // Contador animado básico
+    let contador = 1000000;
+    function actualizarContador(id) {
+      const el = document.getElementById(id);
+      setInterval(() => {
+        contador += Math.floor(Math.random() * 5); // Avanza lentamente
+        el.textContent = "+" + contador.toLocaleString("es-MX") + " usuarios han usado esta herramienta";
+      }, 3000);
+    }
+
+    actualizarContador("contadorUsuarios");
+    actualizarContador("contadorUsuarios2");
+    actualizarContador("contadorUsuarios3");
+    actualizarContador("contadorUsuarios4");
   </script>
 </body>
 </html>
